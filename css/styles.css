@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;600&display=swap');
+
+:root {
+    font-family: 'IBM Plex Mono', monospace; 
+    --color-white-about-me: #ececec;
+    --color-gray-follow: #989899;
+    --color-gray-contact: #CCCCCC;
+    --color-black: #1c1c1c;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'IBM Plex Mono', monospace; 
+    color: #1c1c1c;
+    font-weight: 300;
+}
+
+/* enlaces a secciones de la pagina 
+EN: links to sections of the page */
+a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* estilos de la lista de enlaces, logo y menu 
+EN: link list, logo and menu styles */
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    max-width: 7rem;
+}
+
+/* estilos del navbar 
+EN: navbar styles */
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+.nav-item {
+    margin-right: 20px; 
+}
+
+/* Navbar para Mobile (<= 600px) 
+EN: Navbar for Mobile */
+@media screen and (max-width: 600px) {
+    .nav-list {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .nav-item {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+    }
+}
+/** **/
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+.nav-link:hover {
+    color: #C0C0C0;
+    background-color: #1c1c1c; 
+}
+.nav-menu {
+    margin: 3rem;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-inline: 2rem;
+}
+.main-header {
+    align-items: center;
+}
+
+/* estilos de los titulos 
+EN: title styles */
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+}
+/* efectos hover en etiquetas h1 (titulo principal) section about-me 
+EN: hover effects in h1 tags (main title) section about-me */ 
+#animatedTitle {
+    opacity: 0.2;
+    animation: flashAndSlide 0.4s infinite alternate;
+}
+h1 {
+    opacity: 0;
+    animation: flashAndSlide 0.2s infinite alternate;
+}
+#imgTitle {
+    width: 350px;
+}
+@keyframes flashAndSlide {
+    0%, 100% {
+        opacity: 0.2;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(var(--random-translate)); /* Ajusta la cantidad de desplazamiento */
+    }
+}
+/** **/
+
+/* SECTION => About me */
+section#about-me {
+    margin-top: 110px;
+}
+.about-me-inner {
+    display: grid;
+    grid-template-columns: .35fr 1fr;
+    grid-template-areas: 
+        "photo title"
+        "photo text"
+    ;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    background-color: var(--color-white-about-me);
+}
+.about-me-photo {
+    grid-area: photo;
+    
+}
+.about-me-photo img {
+    max-width: 100%;
+    transform: scale(1.2);
+}
+.about-me-photo img:hover {
+    transform: scale(0.8);
+}
+.about-me-title {
+    grid-area: title;
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-top: 15px
+}
+.about-me-text {
+    grid-area: text;
+    line-height: 1.2;
+}
+/* efectos párrafo section about-me 
+EN: effects paragraph section about-me */
+.animated-paragraph {
+    animation: changeLayout 8s infinite; /* Cambia la disposición cada 8 segundos (ajusta según tus preferencias) */
+}
+@keyframes changeLayout {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(-40px);
+    }
+    75% {
+        transform: translateY(-60px);
+    }
+}
+/** **/ 
+
+/* SECTION => Follow */
+.follow-inner {
+    display: grid;
+    grid-template-columns: .35fr 1fr;
+    grid-template-areas: 
+        "title photo"
+        "item photo"
+    ;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    background-color: var(--color-gray-follow);
+}
+.follow-photo {
+    grid-area: photo;
+    justify-self: end;
+}
+.follow-photo img {
+    width: 300px;
+    margin-right: 100%;
+    transform: scale(1.1);
+}
+.follow-photo img:hover {
+    transform: scale(0.8);
+}
+.follow-title {
+    grid-area: title;
+    font-size: 3rem;
+    line-height: 1.1;
+    padding: 15px;
+    margin-top: 25px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+} 
+/* estilos en iconos de las redes sociales y sus efectos 
+EN: styles in social media icons and their effects */
+.social-media-link img {
+    max-width: 20px;
+    transition: transform 0.3s ease;
+}
+.social-media-link:hover img {
+    transform: scale(1.2) rotate(360deg); /* Ajusta el valor según tus preferencias */
+}
+
+/* SECTION => contact */
+button#btn-copy {
+    color: var(--color-white-about-me);
+    transition: transform 0.3s ease;
+}
+button#btn-copy:hover {
+    transform: rotateY(180deg);
+}
+
+.contact-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    padding: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.contact-secondary-title {
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.contact-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+}
+
+/* SECTION => MY-LABEL */
+.card {
+    display: flex;
+    align-items: center;
+}
+.card {
+    border: 2px solid #333333;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* borde animado card 
+EN: animated border card */
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333333;
+    transition: transform 0.3s ease;
+}
+.card::before {
+    top: 0;
+    transform-origin: right;
+}
+.card::after {
+    bottom: 0;
+    transform-origin: left;
+}
+.card:hover::before,
+.card:hover::after {
+    transform: rotate(360deg); /* Gira las líneas al pasar el ratón por encima */
+}
+.card:hover {
+    transform: scale(1.05); /* Mantiene la propiedad original para el efecto de escala al pasar el ratón por encima */
+}
+/** **/
+
+.card img {
+    max-width: 600px;
+}
+
+.card-title {
+    font-size: 2rem;
+    line-height: 1.1;
+    padding: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.card-text {
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-label {
+    background-color: var(--color-black);
+    color: var(--color-white-about-me);
+}
+
+/* SECTION => FOOTER */
+#footer {
+    margin-top: 20px; 
+    background-color: var(--color-black);
+    color: var(--color-white-about-me);
+}
